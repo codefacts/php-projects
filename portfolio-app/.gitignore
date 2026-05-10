@@ -2,6 +2,8 @@
 .DS_Store
 Thumbs.db
 
+.uploads
+
 # IDE / Editor
 .vscode/
 .idea/
