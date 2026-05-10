@@ -1,0 +1,63 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Environment files
+# .env
+# .env.*
+!.env.example
+
+# Composer
+/vendor/
+composer.lock
+
+# Node modules (if using frontend tools)
+node_modules/
+
+# Cache / Temp
+/cache/
+/tmp/
+/temp/
+
+# Uploads (optional - remove if you want uploads tracked)
+# uploads/
+
+# PHPUnit
+.phpunit.result.cache
+
+# Build files
+/dist/
+/build/
+
+# Coverage reports
+coverage/
+
+# Session files
+sessions/
+
+# Database files
+*.sqlite
+*.db
+
+# Generated assets
+/public/storage
+/storage/*.key
+
+# XAMPP / Local server files
+xampp/
+apache/logs/
+
+# Misc
+# *.bak
+# *.zip
+# *.tar.gz
