@@ -1,7 +1,7 @@
 <?php
 
 require_once "./cors.php";
-require_once "../auth.php";
+require_once "./auth.php";
 
 $conn = new mysqli("localhost", "user", "123", "portfolio");
 

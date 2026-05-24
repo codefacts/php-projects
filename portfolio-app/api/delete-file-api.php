@@ -1,6 +1,6 @@
 <?php
 require_once "./cors.php";
-require_once '../auth.php';
+require_once './auth.php';
 
 $filename = $_POST['filename'];
 $filepath = dirname(__DIR__) . "/uploads/" . basename($filename);

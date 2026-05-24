@@ -1,7 +1,7 @@
 <?php
 
 require_once './cors.php';
-require_once '../auth.php';
+require_once './auth.php';
 header("Content-Type: application/json");
 
 if (!isset($_FILES['file'])) {
