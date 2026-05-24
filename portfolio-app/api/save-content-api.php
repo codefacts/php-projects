@@ -2,8 +2,9 @@
 
 require_once "./cors.php";
 require_once "./auth.php";
+require_once "../db.php";
 
-$conn = new mysqli("localhost", "user", "123", "portfolio");
+$conn = getDbConnection();
 
 $data = json_decode(file_get_contents("php://input"), true);
 

@@ -5,3 +5,6 @@ CREATE TABLE admin (
   content JSON
 );
 
+ALTER TABLE admin
+ADD COLUMN site_title VARCHAR(255)
+AFTER password;

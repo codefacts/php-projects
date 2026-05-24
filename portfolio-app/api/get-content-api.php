@@ -1,8 +1,9 @@
 <?php
 
 require_once "./cors.php";
+require_once "../db.php";
 
-$conn = new mysqli("localhost", "user", "123", "portfolio");
+$conn = getDbConnection();
 
 $result = $conn->query("SELECT content FROM admin WHERE id = 1");
 
