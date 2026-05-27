@@ -22,7 +22,7 @@ $result = $stmt->get_result()->fetch_assoc();
 
 if ($result && password_verify($password, $result["password"])) {
 
-    $_SESSION["admin"] = $result["id"];
+    $_SESSION["admin_id"] = $result["id"];
 
     echo json_encode([
         "success" => true
