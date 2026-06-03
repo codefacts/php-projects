@@ -13,7 +13,7 @@ return [
 
     "db_password" => "123",
 
-    "db_name" => "portfolio",
+    "db_name" => "portfolio_db",
 
     "db_table_prefix" => "pt_"
 ];
