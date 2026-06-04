@@ -4,8 +4,9 @@ require_once "./cors.php";
 require_once "../db.php";
 
 $conn = getDbConnection();
+$tablePrefix = getTablePrefix();
 
-$result = $conn->query("SELECT content FROM admin WHERE id = 1");
+$result = $conn->query("SELECT content FROM {$tablePrefix}admin WHERE id = 1");
 
 $row = $result->fetch_assoc();
 

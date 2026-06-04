@@ -13,8 +13,9 @@ $username = $data["username"];
 $password = $data["password"];
 
 $conn = getDbConnection();
+$tpfix = getTablePrefix();
 
-$stmt = $conn->prepare("SELECT * FROM admin WHERE username=?");
+$stmt = $conn->prepare("SELECT * FROM {$tpfix}admin WHERE username=?");
 $stmt->bind_param("s", $username);
 $stmt->execute();
 

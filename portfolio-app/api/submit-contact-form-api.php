@@ -20,8 +20,9 @@ try {
     // ============================
     // CREATE TABLE (ONLY ONCE)
     // ============================
+    $tpfix = getTablePrefix();
     $createTableSQL = "
-        CREATE TABLE IF NOT EXISTS contact_submissions (
+        CREATE TABLE IF NOT EXISTS {$tpfix}contact_submissions (
             id INT AUTO_INCREMENT PRIMARY KEY,
             data LONGTEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -48,8 +49,10 @@ try {
     // ============================
     // INSERT INTO DATABASE
     // ============================
+    $tpfix = getTablePrefix();
+
     $stmt = $conn->prepare("
-        INSERT INTO contact_submissions (data)
+        INSERT INTO {$tpfix}contact_submissions (data)
         VALUES (?)
     ");
 

@@ -80,8 +80,9 @@ try {
 // =========================
 // TABLE NAME
 // =========================
+$tpfix = getTablePrefix();
 
-$table = "admin";
+$table = $tpfix . "admin";
 
 // =========================
 // CREATE TABLE IF NOT EXISTS

@@ -22,8 +22,9 @@ try {
     // ENSURE TABLE EXISTS
     // (safe even if already created)
     // ============================
+    $tpfix = getTablePrefix();
     $conn->query("
-        CREATE TABLE IF NOT EXISTS contact_submissions (
+        CREATE TABLE IF NOT EXISTS {$tpfix}contact_submissions (
             id INT AUTO_INCREMENT PRIMARY KEY,
             data LONGTEXT NOT NULL,
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -33,9 +34,11 @@ try {
     // ============================
     // FETCH DATA
     // ============================
+    $tpfix = getTablePrefix();
+
     $result = $conn->query("
         SELECT id, data, created_at
-        FROM contact_submissions
+        FROM {$tpfix}contact_submissions
         ORDER BY id DESC
     ");
 

@@ -6,8 +6,9 @@ require_once '../db.php'; // your database connection file
 
 try {
     $conn = getDbConnection(); // adjust if your function name is different
+    $tpfix = getTablePrefix();
 
-    $stmt = $conn->prepare("SELECT site_title FROM admin WHERE id = 1 LIMIT 1");
+    $stmt = $conn->prepare("SELECT site_title FROM {$tpfix}admin WHERE id = 1 LIMIT 1");
     $stmt->execute();
 
     $result = $stmt->get_result();

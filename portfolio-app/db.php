@@ -27,3 +27,12 @@ function getDbConnection() {
 
     return $conn;
 }
+
+
+function getTablePrefix() {
+    global $config;
+    return $config["db_table_prefix"];
+}
+
+
+

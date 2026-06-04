@@ -5,12 +5,13 @@ require_once "./auth.php";
 require_once "../db.php";
 
 $conn = getDbConnection();
+$tpfix = getTablePrefix();
 
 $data = json_decode(file_get_contents("php://input"), true);
 
 $json = json_encode($data["content"]);
 
-$stmt = $conn->prepare("UPDATE admin SET content = ? WHERE id = 1");
+$stmt = $conn->prepare("UPDATE {$tpfix}admin SET content = ? WHERE id = 1");
 $stmt->bind_param("s", $json);
 
 if ($stmt->execute()) {

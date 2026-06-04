@@ -27,8 +27,8 @@ try {
 // =========================
 // CHECK IF TABLE EXISTS
 // =========================
-
-$table = "admin";
+$tpfix = getTablePrefix();
+$table = $tpfix . "admin";
 
 $tableCheck = $conn->query("
     SHOW TABLES LIKE '{$table}'
