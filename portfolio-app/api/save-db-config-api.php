@@ -159,13 +159,28 @@ return [
 
 PHP;
 
-// =========================
-// WRITE FILE
-// =========================
-
 $configFilePath =
     __DIR__ . "/../app-config.php";
 
+if (
+    file_exists(
+        $configFilePath
+    )
+) {
+
+    echo json_encode([
+        "success" => false,
+
+        "message" =>
+            "This application is already configured. Please delete app-config.php before running setup again.",
+
+        "error_type" =>
+            "APP_ALREADY_CONFIGURED"
+    ]);
+
+    exit;
+}
+    
 // Prevent PHP warnings from breaking JSON
 $result = @file_put_contents(
     $configFilePath,

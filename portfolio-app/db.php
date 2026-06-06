@@ -6,7 +6,23 @@ if (basename($_SERVER["PHP_SELF"]) === basename(__FILE__)) {
     exit("Access denied");
 }
 
-$config = require_once __DIR__ . "/app-config.php";
+
+
+$configFile = __DIR__ . "/app-config.php";
+
+if (
+    !file_exists(
+        $configFile
+    )
+) {
+
+    throw new RuntimeException(
+        "app-config.php not found"
+    );
+}
+
+$config =
+    require_once $configFile;
 
 function getDbConnection() {
     global $config;

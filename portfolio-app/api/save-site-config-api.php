@@ -26,6 +26,11 @@ $siteTitle =
         $input["site_title"] ?? ""
     );
 
+$faviconUrl =
+    trim(
+        $input["favicon_url"] ?? ""
+    );
+
 $username =
     trim(
         $input["username"] ?? ""
@@ -85,6 +90,34 @@ $tpfix = getTablePrefix();
 $table = $tpfix . "admin";
 
 // =========================
+// CHECK IF ALREADY INSTALLED
+// =========================
+
+$checkTable =
+    $conn->query(
+        "SHOW TABLES LIKE '{$table}'"
+    );
+
+if (
+    $checkTable &&
+    $checkTable->num_rows > 0
+) {
+
+    echo json_encode([
+        "success" => false,
+
+        "message" =>
+            "Admin is already configured.",
+
+        "error_type" =>
+            "ADMIN_ALREADY_CONFIGURED"
+    ]);
+
+    exit;
+}
+
+
+// =========================
 // CREATE TABLE IF NOT EXISTS
 // =========================
 
@@ -99,6 +132,8 @@ CREATE TABLE IF NOT EXISTS {$table} (
 
     site_title VARCHAR(255) NULL,
 
+    favicon_url VARCHAR(500) NULL,
+
     content LONGTEXT NULL
 
 )
@@ -109,14 +144,6 @@ COLLATE=utf8mb4_general_ci
 
 $conn->query(
     $createTableSql
-);
-
-// =========================
-// CLEAR OLD ADMIN
-// =========================
-
-$conn->query(
-    "TRUNCATE TABLE {$table}"
 );
 
 // =========================
@@ -138,10 +165,12 @@ INSERT INTO {$table}
 (
     username,
     password,
-    site_title
+    site_title,
+    favicon_url
 )
 VALUES
 (
+    ?,
     ?,
     ?,
     ?
@@ -149,10 +178,11 @@ VALUES
 ");
 
 $stmt->bind_param(
-    "sss",
+    "ssss",
     $username,
     $hashedPassword,
-    $siteTitle
+    $siteTitle,
+    $faviconUrl
 );
 
 $success =

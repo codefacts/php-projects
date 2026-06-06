@@ -1,9 +1,38 @@
 <?php
 
 require_once "./cors.php";
-require_once "../db.php";
 
 header("Content-Type: application/json");
+
+// =========================
+// CHECK APP CONFIG
+// =========================
+
+$configFile =
+    "../app-config.php";
+
+if (
+    !file_exists(
+        $configFile
+    )
+) {
+
+    echo json_encode([
+        "success" => true,
+
+        "configured" => false,
+
+        "message" =>
+            "Application is not configured.",
+
+        "error_type" =>
+            "APP_CONFIG_MISSING"
+    ]);
+
+    exit;
+}
+
+require_once "../db.php";
 
 try {
 
