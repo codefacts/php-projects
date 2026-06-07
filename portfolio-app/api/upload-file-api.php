@@ -2,7 +2,6 @@
 
 require_once './cors.php';
 require_once './auth.php';
-header("Content-Type: application/json");
 
 if (!isset($_FILES['file'])) {
     echo json_encode([

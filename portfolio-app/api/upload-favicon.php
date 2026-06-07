@@ -1,6 +1,5 @@
 <?php
 require_once "./cors.php";
-header("Content-Type: application/json");
 
 $uploadDir = "../uploads/favicons/";
 

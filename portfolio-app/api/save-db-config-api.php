@@ -2,8 +2,6 @@
 
 require_once "./cors.php";
 
-header("Content-Type: application/json");
-
 // Prevent PHP HTML warnings
 ini_set("display_errors", 0);
 

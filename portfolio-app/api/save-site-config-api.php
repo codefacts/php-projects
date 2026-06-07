@@ -6,8 +6,6 @@ session_regenerate_id(true);
 require_once "./cors.php";
 require_once "../db.php";
 
-header("Content-Type: application/json");
-
 // =========================
 // READ JSON BODY
 // =========================

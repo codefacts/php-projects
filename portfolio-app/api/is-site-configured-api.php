@@ -2,8 +2,6 @@
 
 require_once "./cors.php";
 
-header("Content-Type: application/json");
-
 // =========================
 // CHECK APP CONFIG
 // =========================

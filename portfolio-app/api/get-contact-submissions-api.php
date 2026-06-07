@@ -1,7 +1,6 @@
 <?php
 require_once "./cors.php";
 require_once './auth.php';
-header('Content-Type: application/json');
 require_once "../db.php";
 
 // ============================
