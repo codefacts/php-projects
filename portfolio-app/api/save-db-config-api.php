@@ -1,6 +1,9 @@
 <?php
 
 require_once "./cors.php";
+require_once "./api-logger.php";
+
+logApiRequest();
 
 // Prevent PHP HTML warnings
 ini_set("display_errors", 0);

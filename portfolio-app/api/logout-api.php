@@ -1,6 +1,9 @@
 <?php
 
 require_once "./cors.php";
+require_once "./api-logger.php";
+
+logApiRequest();
 
 session_start();
 

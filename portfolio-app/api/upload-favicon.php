@@ -1,5 +1,8 @@
 <?php
 require_once "./cors.php";
+require_once "./api-logger.php";
+
+logApiRequest();
 
 $uploadDir = "../uploads/favicons/";
 

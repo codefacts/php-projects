@@ -3,7 +3,9 @@
 require_once "./cors.php";
 require_once "./auth.php";
 require_once "../db.php";
+require_once "./api-logger.php";
 
+logApiRequest();
 $conn = getDbConnection();
 $tpfix = getTablePrefix();
 

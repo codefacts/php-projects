@@ -5,6 +5,9 @@ session_regenerate_id(true);
 
 require_once "./cors.php";
 require_once "../db.php";
+require_once "./api-logger.php";
+
+logApiRequest();
 
 // =========================
 // READ JSON BODY

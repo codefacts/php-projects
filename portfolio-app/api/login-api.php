@@ -4,6 +4,9 @@ error_reporting(E_ALL);
 
 require_once "./cors.php";
 require_once "../db.php";
+require_once "./api-logger.php";
+
+logApiRequest();
 
 session_start();
 
